@@ -107,17 +107,18 @@ class Predict_model():
         
         flowers = [self.cat_to_name[label] for label in labels] 
         
-        return probs, flowers
+        return probs, flowers, labels
     
     def display_results(self, top_k):
         
-        probabilities, flowers = self.predict(top_k)  
+        probabilities, flowers, labels = self.predict(top_k)  
         print("_"*70)
         print("FLOWER && PROBABILITY")
         print("_"*70)
         for i in range(len(flowers)):
             print(f"{flowers[i]} => {probabilities[i]:.2f}")
         print("_"*70)
+        
 if __name__=="__main__":
 
     parser=set_argument_parser()
